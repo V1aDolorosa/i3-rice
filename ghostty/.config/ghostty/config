@@ -1,12 +1,45 @@
 # =========================================
-# TOKYO NIGHT STORM
+# GHOSTTY | TOKYO NIGHT STORM
 # =========================================
 
 theme = TokyoNight Storm
 
-# Transparency
-background-opacity = 1.0
+# =========================================
+# WINDOW
+# =========================================
 
-# Font
-font-size = 9
+background-opacity = 1.0
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+window-decoration = false
+
+# =========================================
+# FONT
+# =========================================
+
 font-family = MartianMono Nerd Font Propo
+font-size = 9
+font-thicken = true
+
+# =========================================
+# CURSOR
+# =========================================
+
+cursor-style = block
+cursor-style-blink = false
+
+# =========================================
+# TERMINAL
+# =========================================
+
+confirm-close-surface = false
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# =========================================
+# MOUSE
+# =========================================
+
+mouse-hide-while-typing = true

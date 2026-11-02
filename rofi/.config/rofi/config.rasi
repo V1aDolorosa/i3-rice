@@ -20,21 +20,26 @@ configuration {
 * {
     bg: #24283B;
     bg-alt: #1F2335;
+    surface: #292E42;
+
     fg: #C0CAF5;
     muted: #565F89;
-    accent: #7AA2F7;
-    selected-bg: #7AA2F7;
-    selected-fg: #1F2335;
+
+    blue: #7AA2F7;
+    cyan: #7DCCFF;
+    purple: #BB9AF7;
+    pink: #F7768E;
 
     background-color: transparent;
     text-color: @fg;
-    border-color: @accent;
+    border-color: @blue;
 }
+
 window {
     width: 620px;
     border: 2px;
     border-radius: 12px;
-    border-color: @accent;
+    border-color: @blue;
     background-color: @bg;
     padding: 18px;
 }
@@ -49,14 +54,14 @@ inputbar {
     background-color: @bg-alt;
     border: 1px;
     border-radius: 8px;
-    border-color: @accent;
+    border-color: @surface;
     padding: 10px 14px;
     children: [prompt, entry];
     spacing: 10px;
 }
 
 prompt {
-    text-color: @accent;
+    text-color: @blue;
 }
 
 entry {
@@ -76,7 +81,7 @@ listview {
 }
 
 element {
-    padding: 8px;
+    padding: 9px 10px;
     border-radius: 7px;
     background-color: transparent;
 }
@@ -86,18 +91,18 @@ element normal {
 }
 
 element selected.normal {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
+    background-color: @blue;
+    text-color: @bg;
 }
 
 element selected.active {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
+    background-color: @purple;
+    text-color: @bg;
 }
 
 element selected.urgent {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
+    background-color: @pink;
+    text-color: @bg;
 }
 
 element-icon {
