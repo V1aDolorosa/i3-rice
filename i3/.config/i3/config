@@ -174,8 +174,7 @@ exec --no-startup-id polybar
 exec --no-startup-id ~/.local/bin/start-home
 
 # Обои
-exec --no-startup-id feh --bg-fill ~/Изображения/kanagawa3.png
-
+exec --no-startup-id feh --bg-fill "/home/via/Загрузки/wp12614986-kanagawa-4k-wallpapers.jpg"
 # =========================================
 # ПЕРЕЗАГРУЗКА И КОНФИГУРАЦИЯ
 # =========================================
