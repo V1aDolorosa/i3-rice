@@ -7,23 +7,23 @@ configuration {
 }
 
 * {
-    bg: #16161D;
-    surface: #1F1F28;
-    surface-hover: #2A2A37;
-    fg: #DCD7BA;
-    muted: #727169;
+    bg: #24283B;
+    surface: #1F2335;
+    surface-hover: #292E42;
+    fg: #C0CAF5;
+    muted: #565F89;
 
-    accent: #7E9CD8;
-    aqua: #7AA89F;
-    violet: #957FB8;
-    selected: #30364B;
+    accent: #7AA2F7;
+    aqua: #73DACA;
+    violet: #BB9AF7;
+    selected: #292E42;
 }
 
 /* Window */
 window {
     width: 760px;
     border: 1px;
-    border-color: #3A3A48;
+    border-color: #3B4261;
     border-radius: 16px;
     background-color: @bg;
     padding: 20px;
@@ -41,7 +41,7 @@ inputbar {
     background-color: @surface;
     text-color: @fg;
     border: 1px;
-    border-color: #343444;
+    border-color: #3B4261;
     border-radius: 10px;
     padding: 13px;
 }

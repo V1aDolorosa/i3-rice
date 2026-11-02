@@ -1,184 +1,32 @@
 # =========================================
-# i3wm configuration | Kanagawa Wave
-# =========================================
-
-# ---------- Цветовая палитра ----------
-set $kanagawa_bg       #16161D
-set $kanagawa_bg_alt   #1F1F28
-set $kanagawa_fg       #DCD7BA
-set $kanagawa_muted    #727169
-
-set $kanagawa_blue     #7E9CD8
-set $kanagawa_aqua     #7AA89F
-set $kanagawa_violet   #957FB8
-set $kanagawa_pink     #D27E99
-set $kanagawa_yellow   #E6C384
-set $kanagawa_red      #E46876
-
-# ---------- Цвета окон ----------
-# border              background          text                indicator           child_border
-client.focused          $kanagawa_blue     $kanagawa_bg_alt    $kanagawa_fg        $kanagawa_aqua     $kanagawa_blue
-client.focused_inactive $kanagawa_muted    $kanagawa_bg        $kanagawa_muted     $kanagawa_bg_alt   $kanagawa_muted
-client.unfocused        $kanagawa_bg_alt   $kanagawa_bg        $kanagawa_muted     $kanagawa_bg_alt   $kanagawa_bg_alt
-client.urgent           $kanagawa_red      $kanagawa_red       $kanagawa_fg        $kanagawa_yellow   $kanagawa_red
-client.placeholder      $kanagawa_bg_alt  $kanagawa_bg        $kanagawa_muted     $kanagawa_bg_alt   $kanagawa_bg_alt
-client.background $kanagawa_bg
-
-# =========================================
-# ОСНОВНЫЕ НАСТРОЙКИ
-# =========================================
-
-set $mod Mod4
-set $term ghostty
-
-font pango:JetBrainsMono Nerd Font 10
-
-# Отступы
-smart_borders on
-smart_gaps on
-gaps inner 10
-gaps outer 5
-
-# Рамки окон
-default_border pixel 2
-default_floating_border pixel 2
-hide_edge_borders smart
-
-# Фокус и мышь
-focus_follows_mouse yes
-mouse_warping none
-floating_modifier $mod
-tiling_drag modifier titlebar
-
-# =========================================
-# ПРИЛОЖЕНИЯ
-# =========================================
-
-# Терминал
-bindsym $mod+Return exec --no-startup-id $term
-
-# Rofi
-
-bindsym $mod+Shift+d exec --no-startup-id rofi -show run
-bindsym $mod+x exec --no-startup-id rofi -show drun -show-icons -theme ~/.config/rofi/launcher.rasi
-bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/launcher.rasi
-# Скриншоты
-bindsym Print exec --no-startup-id flameshot gui
-
-# Блокировка экрана
-bindsym $mod+l exec --no-startup-id i3lock -i ~/Изображения/pink1.jpg
-
-# =========================================
-# УПРАВЛЕНИЕ ОКНАМИ
-# =========================================
-
-bindsym $mod+q kill
-bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+space floating toggle
-
-# Win + Space зарезервирован для переключения раскладки
-bindsym $mod+Ctrl+space focus mode_toggle
-
-# Фокус стрелками
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# Перемещение окон: H/J/K/L и стрелки
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# Изменение размера окон
-bindsym $mod+Ctrl+Left resize shrink width 30 px or 3 ppt
-bindsym $mod+Ctrl+Right resize grow width 30 px or 3 ppt
-bindsym $mod+Ctrl+Up resize shrink height 30 px or 3 ppt
-bindsym $mod+Ctrl+Down resize grow height 30 px or 3 ppt
-
-# Раскладка окон
-bindsym $mod+e layout toggle split
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+v split v
-bindsym $mod+b split h
-
-# Выход из i3
-bindsym $mod+Shift+e exit
-
-# =========================================
-# РАБОЧИЕ СТОЛЫ
-# =========================================
-
-set $ws1 "1:home"
-set $ws2 "2:music"
-set $ws3 "3:code"
-set $ws4 "4:web"
-set $ws5 "5:misc"
-
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
-
-# Перенос окон между рабочими столами
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-
-# =========================================
-# МУЛЬТИМЕДИА И ЯРКОСТЬ
-# =========================================
-
-# Громкость
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-# Яркость экрана
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
-# Управление музыкой
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-
-# =========================================
 # КЛАВИАТУРА
 # =========================================
 
 # Переключение раскладки: Right Alt и Win + Space
-exec_always --no-startup-id setxkbmap -layout us,ru -option "" -option grp:toggle -option grp:win_space_toggle
+exec_always --no-startup-id setxkbmap -layout us,ru -option "" -option grp:ralt_toggle -option grp:win_space_toggle
+
 # =========================================
 # АВТОЗАПУСК
 # =========================================
 
+# Композитор
 exec --no-startup-id picom
+
+# Панель
 exec --no-startup-id polybar
+
+# Домашний экран
 exec --no-startup-id ~/.local/bin/start-home
 
 # Обои
-exec --no-startup-id feh --bg-fill ~/Изображения/kanagawa3.png
+exec --no-startup-id feh --bg-fill "$HOME/Загрузки/tokyo-night _wallpaper.png"
 
 # =========================================
 # ПЕРЕЗАГРУЗКА И КОНФИГУРАЦИЯ
 # =========================================
 
+# Перезагрузка конфига
 bindsym $mod+Shift+c reload
+
+# Перезапуск i3
 bindsym $mod+Shift+r restart

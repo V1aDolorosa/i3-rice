@@ -10,7 +10,7 @@ configuration {
     font: "JetBrainsMono Nerd Font 11";
     terminal: "ghostty";
 
-    icon-theme: "oomox-Kanagawa";
+    icon-theme: "candy-icons";
 
     hover-select: false;
     matching: "fuzzy";
@@ -18,13 +18,13 @@ configuration {
 }
 
 * {
-    bg: #16161D;
-    bg-alt: #1F1F28;
-    fg: #DCD7BA;
-    muted: #727169;
-    accent: #7E9CD8;
-    selected-bg: #7E9CD8;
-    selected-fg: #1F1F28;
+    bg: #24283B;
+    bg-alt: #1F2335;
+    fg: #C0CAF5;
+    muted: #565F89;
+    accent: #7AA2F7;
+    selected-bg: #7AA2F7;
+    selected-fg: #1F2335;
 
     background-color: transparent;
     text-color: @fg;
