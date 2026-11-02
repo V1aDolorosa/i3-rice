@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+i3-msg "workspace number 1" >/dev/null
+sleep 0.8
+if wmctrl -l | grep -Fq "Welcome Screen"; then exit 0; fi
+ghostty --title="Welcome Screen" --window-width=48 --window-height=12 -e "$HOME/.local/bin/welcome-screen" >/dev/null 2>&1 &
+selector="[title=\"Welcome Screen\"]"
+for _ in {1..50}; do
+    if wmctrl -l | grep -Fq "Welcome Screen"; then
+        i3-msg "$selector floating enable" >/dev/null
+        i3-msg "$selector resize set 540 px 250 px" >/dev/null
+        i3-msg "$selector move position 35 px 90 px" >/dev/null
+        exit 0
+    fi
+    sleep 0.1
+done
+exit 1

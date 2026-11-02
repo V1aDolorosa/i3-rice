@@ -1,0 +1,12 @@
+# =========================================
+# KANAGAWA WAVE
+# =========================================
+
+theme = Kanagawa Wave
+
+# Transparency
+background-opacity = 1.0
+
+# Font
+font-size = 9
+font-family = MartianMono Nerd Font Propo

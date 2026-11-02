@@ -1,0 +1,42 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+"logo": {
+    "type": "command-raw",
+    "source": "ponysay -X -o",
+    "padding": {
+        "top": 0,
+        "left": 1,
+        "right": 3
+    }
+},
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "battery",
+    "poweradapter",
+    "localip",
+    "locale",
+    "break",
+    "colors"
+  ]
+}

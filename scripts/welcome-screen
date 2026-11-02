@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -u
+
+# =========================================
+# KANAGAWA WAVE COLORS
+# =========================================
+
+BLUE=$(printf "\033[38;2;126;156;216m")
+VIOLET=$(printf "\033[38;2;149;127;184m")
+TEXT=$(printf "\033[38;2;220;215;186m")
+RESET=$(printf "\033[0m")
+
+# =========================================
+# TEXT ANIMATION
+# =========================================
+
+type_text() {
+  local text="$1"
+  local i
+
+  for ((i = 0; i < ${#text}; i++)); do
+    printf "%s" "${text:i:1}"
+    sleep 0.065
+  done
+
+  printf "\n"
+}
+
+# =========================================
+# WELCOME SCREEN
+# =========================================
+
+clear
+
+printf "%s  SYSTEM INITIALIZED%s\n" "$BLUE" "$RESET"
+printf "%s  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━%s\n\n" "$VIOLET" "$RESET"
+
+printf "%s" "$TEXT"
+type_text "Name: ${USER:-user},"
+type_text "OS : Fedora 44, i3wm"
+printf "%s" "$RESET"
+
+printf "\n%s    ┌────────────────────────────────┐%s\n" "$VIOLET" "$RESET"
+printf "%s    │%s     [ ENTER ]  ПРОДОЛЖИТЬ      %s│%s\n" "$VIOLET" "$TEXT" "$VIOLET" "$RESET"
+printf "%s    └────────────────────────────────┘%s\n" "$VIOLET" "$RESET"
+
+printf "\n"
+
+IFS= read -r _ || true
+
+mkdir -p "$HOME/.cache"
+
+if [[ -x "$HOME/.local/bin/desktop-home" ]]; then
+  setsid -f "$HOME/.local/bin/desktop-home" \
+    </dev/null >>"$HOME/.cache/desktop-home-launch.log" 2>&1
+fi

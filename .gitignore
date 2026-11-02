@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# User-specific files
+fish/.config/fish/fish_variables
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

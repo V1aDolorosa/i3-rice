@@ -1,0 +1,97 @@
+
+configuration {
+    show-icons: true;
+    icon-theme: "candy-icons";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+* {
+    bg: #16161D;
+    surface: #1F1F28;
+    surface-hover: #2A2A37;
+    fg: #DCD7BA;
+    muted: #727169;
+
+    accent: #7E9CD8;
+    aqua: #7AA89F;
+    violet: #957FB8;
+    selected: #30364B;
+}
+
+/* Window */
+window {
+    width: 760px;
+    border: 1px;
+    border-color: #3A3A48;
+    border-radius: 16px;
+    background-color: @bg;
+    padding: 20px;
+}
+
+/* Layout */
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 16px;
+}
+
+/* Search */
+inputbar {
+    background-color: @surface;
+    text-color: @fg;
+    border: 1px;
+    border-color: #343444;
+    border-radius: 10px;
+    padding: 13px;
+}
+
+prompt {
+    text-color: @aqua;
+}
+
+entry {
+    text-color: @fg;
+    placeholder-color: @muted;
+}
+
+/* Applications */
+listview {
+    columns: 4;
+    lines: 3;
+    fixed-height: false;
+    spacing: 10px;
+    background-color: transparent;
+}
+
+/* Normal item */
+element {
+    orientation: vertical;
+    border-radius: 11px;
+    padding: 12px;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+/* Selected item */
+element selected {
+    background-color: @selected;
+    border: 1px;
+    border-color: @accent;
+    text-color: @fg;
+}
+
+/* Icons */
+element-icon {
+    size: 44px;
+    horizontal-align: 0.5;
+    background-color: transparent;
+}
+
+/* Text */
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}

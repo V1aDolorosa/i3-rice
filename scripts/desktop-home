@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -u
+
+mkdir -p "$HOME/.cache"
+exec >> "$HOME/.cache/desktop-home.log" 2>&1
+
+echo "Starting desktop home: $(date)"
+
+i3-msg "workspace number 1" >/dev/null
+sleep 0.5
+
+# Close old home windows before recreating them.
+wmctrl -l |
+    grep -E "Home-Monitor|Home-Clock|Home-Fastfetch" |
+    while read -r id rest; do
+        wmctrl -ic "$id" || true
+    done
+
+sleep 0.5
+
+launch_terminal() {
+    local title="$1"
+    shift
+
+    setsid -f ghostty --title="$title" -e "$@" \
+        >> "$HOME/.cache/ghostty-home.log" 2>&1
+
+    for _ in {1..50}; do
+        if wmctrl -l | grep -Fq "$title"; then
+            echo "Started: $title"
+            return 0
+        fi
+        sleep 0.1
+    done
+
+    echo "ERROR: Window not found: $title"
+    return 1
+}
+
+# 1. System monitor
+launch_terminal "Home-Monitor" btop || exit 1
+wmctrl -a "Home-Monitor"
+i3-msg "split h" >/dev/null
+sleep 0.3
+
+# 2. Clock
+launch_terminal "Home-Clock" "$HOME/.local/bin/home-clock" || exit 1
+wmctrl -a "Home-Clock"
+i3-msg "split v" >/dev/null
+sleep 0.3
+
+# 3. Fastfetch + Pinkie Pie
+launch_terminal "Home-Fastfetch" "$HOME/.local/bin/home-fastfetch" || exit 1
+
+echo "Final windows:"
+wmctrl -l

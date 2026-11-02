@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+BLUE=$(printf "\033[38;2;126;156;216m")
+RESET=$(printf "\033[0m")
+
+printf "%s   SYSTEM INFORMATION%s\n\n" "$BLUE" "$RESET"
+
+fastfetch
+
+exec fish -l

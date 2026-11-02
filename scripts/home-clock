@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec "$HOME/.local/bin/tty-clock" -c -s -C 4 -x
